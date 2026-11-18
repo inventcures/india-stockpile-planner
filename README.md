@@ -25,6 +25,8 @@ python3 -m http.server 8000
 # open http://localhost:8000
 ```
 
+Or with Node (this is what Railway runs): `npm start` (serves on `$PORT`, default 8000).
+
 Tests for the model:
 
 ```sh
