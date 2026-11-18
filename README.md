@@ -30,7 +30,7 @@ Or with Node (this is what Railway runs): `npm start` (serves on `$PORT`, defaul
 Tests for the model:
 
 ```sh
-node --test tests/
+node --test tests/*.test.mjs
 ```
 
 ## Files
