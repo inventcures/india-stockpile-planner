@@ -1,6 +1,6 @@
 # India Stockpile Planner
 
-**Live app: https://inventcures.github.io/india-stockpile-planner/**
+**Live app: https://india-stockpile-planner-production.up.railway.app** (also GitHub Pages at https://inventcures.github.io/india-stockpile-planner/ once enabled)
 
 An open, in-browser planner for respirator stockpiles in India. Pick a state and an outbreak scenario, and it shows:
 
