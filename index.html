@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>India Stockpile Planner</title>
+  <meta name="description" content="Plan a respirator stockpile for an Indian state: how many masks health and critical workers need, the 5-year cost of disposable N95s vs reusable elastomeric respirators, and the funding gap.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="vendor/chart.umd.min.js"></script>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <h1>India Stockpile Planner</h1>
+      <p class="lede">How many respirators would a state need to keep its health and critical workers working through an airborne outbreak, and what does it cost to hold that stock for five years? Pick a state and a scenario, then change any assumption.</p>
+    </div>
+  </header>
+
+  <main class="wrap layout">
+    <aside class="controls" aria-label="Inputs">
+      <section class="card">
+        <h2>Where and what</h2>
+        <label>State or UT
+          <select id="state"></select>
+        </label>
+        <label>Scenario
+          <select id="scenario"></select>
+        </label>
+        <p class="hint" id="scenarioNote"></p>
+        <label>Response length <output id="daysOut"></output>
+          <input type="range" id="days" min="14" max="365" step="1">
+        </label>
+        <label>Indoor critical workers, % of population <output id="critOut"></output>
+          <input type="range" id="crit" min="0" max="10" step="0.1">
+        </label>
+        <label class="check"><input type="checkbox" id="extendedUse"> Extended use: health workers wear one N95 per shift</label>
+        <p class="hint">Police, sanitation, utilities, transport, food supply and similar. 3% is about 4.3 crore people nationally; health, police and utilities alone are about 2 crore, a broad essential-worker list is 13 crore or more. See Assumptions.</p>
+      </section>
+
+      <section class="card">
+        <h2>Prices</h2>
+        <div class="grid2">
+          <label>N95, ₹ each <input type="number" id="n95PriceINR" min="1" step="1"></label>
+          <label>Elastomeric, ₹ each <input type="number" id="ehmrPriceINR" min="1" step="10"></label>
+          <label>Filter pair, ₹ <input type="number" id="filterPairPriceINR" min="1" step="10"></label>
+          <label>Crisis price multiple <input type="number" id="surgePriceMultiplier" min="1" step="0.5"></label>
+        </div>
+      </section>
+
+      <details class="card" id="advanced">
+        <summary><h2>All assumptions</h2></summary>
+        <div class="grid2" id="advFields"></div>
+        <button type="button" id="reset" class="ghost">Reset to defaults</button>
+      </details>
+    </aside>
+
+    <section class="results" aria-live="polite">
+      <div class="kpis" id="kpis"></div>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>Five-year cost by strategy</h2>
+          <p class="hint">Cumulative spend: the first purchase, then storage, and steps when stock expires and is re-bought.</p>
+        </div>
+        <div class="chart"><canvas id="cumChart" aria-label="Cumulative five-year cost by strategy"></canvas></div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>What each strategy buys</h2>
+          <div class="seg" role="tablist" id="stratTabs">
+            <button role="tab" data-s="disposable">Disposable N95</button>
+            <button role="tab" data-s="mix">90% elastomeric</button>
+            <button role="tab" data-s="reusable">All elastomeric</button>
+          </div>
+        </div>
+        <div class="split">
+          <div class="chart small"><canvas id="yearChart" aria-label="Spend by year and item"></canvas></div>
+          <table class="tbl" id="buyTable"></table>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>Who is protected</h2>
+        </div>
+        <table class="tbl" id="workTable"></table>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>Compare states</h2>
+          <p class="hint">Same scenario and assumptions, 90% elastomeric strategy. Click a row to open that state.</p>
+        </div>
+        <div class="scroll"><table class="tbl sortable" id="stateTable"></table></div>
+      </section>
+
+      <div class="actions">
+        <button type="button" id="share">Copy link to this plan</button>
+        <button type="button" id="csv" class="ghost">Download state table (CSV)</button>
+        <span id="toast" class="hint"></span>
+      </div>
+
+      <section class="card prose" id="method">
+        <h2>How the numbers are made</h2>
+        <div id="methodBody"></div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="wrap foot">
+    <p>An open prototype for planning only. Workforce figures are registered counts and estimates from public sources, listed in the <a href="docs/assumptions.md">assumptions table</a>. It deliberately holds no stockpile locations. Code: MIT licence.</p>
+  </footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
