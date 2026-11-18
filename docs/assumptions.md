@@ -13,7 +13,7 @@ Every default in the planner, with its range and source. All values can be chang
 | N95s per critical (non-health) worker per day | 0.5 | 1–1.5 | 2 | FAS (1 per day); OSHA 2007 (2 per shift for retail). |
 | Share of state health workforce exposed, Nipah-like | 20% | 35% | 60% | Assumption: hospital-centred clusters touch a minority of facilities. |
 | Support staff per doctor or nurse | 0.3 | 0.6 | 1.0 | Assumption: ward attendants, sanitation, lab, drivers, mortuary. MoHFW's rational-use guideline puts sanitation, CSSD, laundry and ambulance staff in the N95 tier. |
-| Indoor critical workers, % of population | 1.5% | 3% | 9% | 3% ≈ 4.4 crore nationally. The 20 million to 130 million range for India depends on the definition (vital vs essential). ALLFED (2025) finds US vital workers are 25–82% of essential workers. |
+| Indoor critical workers, % of population | 1.5% | 3% | 9% | 3% ≈ 4.3 crore nationally. The 20 million to 130 million range for India depends on the definition (vital vs essential). ALLFED (2025) finds US vital workers are 25–82% of essential workers. |
 | Spare stock factor | 5% | 10% | 20% | Sizes, loss, damage. ALLFED uses 1–2 reusables per worker. |
 | Response length (days) | 60 | 60 / 150 | 365 | OSHA uses 120 work days; Blueprint and Gryphon use 150 days, the time industry needs to ramp up. |
 

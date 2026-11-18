@@ -30,8 +30,8 @@
 
 Workers:
 
-- Hospital health workers = (doctors + nurses) × (1 + support staff ratio) × exposed share
-- Community health workers = (ANMs + ASHAs) × exposed share
+- Hospital health workers = (80% of registered doctors + 60% of registered nurses) × (1 + support staff ratio) × exposed share
+- Community health workers = (60% of registered ANMs + ASHAs in post) × exposed share
 - Critical workers = population × critical-worker % (pandemic scenarios only)
 
 Three strategies are always computed side by side: **all disposable**, **90% elastomeric** (Blueprint's mix, with the rest on disposables) and **all elastomeric**.
@@ -63,7 +63,7 @@ Three strategies are always computed side by side: **all disposable**, **90% ela
 
 ## Next steps (after the prototype)
 
-1. Replace registered counts with active-workforce estimates (for example, PLFS or NHWA data).
+1. Replace the flat active-share discount on registered counts with state-specific active-workforce estimates (for example, NHWA or Rural Health Statistics in-position data).
 2. Add PAPRs for workers a tight-fitting mask will not seal on (beards, turbans), and fit-test failure rates from the Indian fit study.
 3. Add district-level views for Kerala, behind access control if it ever holds real stock data.
 4. Add a surge-manufacturing module: how an advance market commitment shortens the ramp-up.
